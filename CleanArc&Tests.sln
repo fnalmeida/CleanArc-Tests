@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35222.181
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "0.Presentation", "0.Presentation", "{28BC61CC-A0B0-4440-9B37-69265FB5FBBE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.Domain", "1.Domain", "{0AA80129-79D5-4817-A1AD-418A686991D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.Infra", "2.Infra", "{D22EA27D-0469-475D-9BA2-6A87B580FD92}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanArc&Tests.Domain", "CleanArc&Tests.Domain\CleanArc&Tests.Domain.csproj", "{8E49762C-9378-4384-B1FF-C2BF8050137F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8E49762C-9378-4384-B1FF-C2BF8050137F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E49762C-9378-4384-B1FF-C2BF8050137F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E49762C-9378-4384-B1FF-C2BF8050137F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E49762C-9378-4384-B1FF-C2BF8050137F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E49762C-9378-4384-B1FF-C2BF8050137F} = {0AA80129-79D5-4817-A1AD-418A686991D7}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2728F346-C7DF-4AA0-9D40-E95517AEF47F}
+	EndGlobalSection
+EndGlobal
