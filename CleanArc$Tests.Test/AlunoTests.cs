@@ -18,11 +18,6 @@ namespace CleanArc_Tests.Test
             var nota1 = new Faker<Nota>().CustomInstantiator( x => new Nota(10)).Generate();
             var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(10)).Generate();
 
-            //var nota1 = new Mock<Nota>();
-            //nota1.Setup(n => n.Valor).Returns(9);
-            //var nota2 = new Mock<Nota>();
-            //nota2.Setup(n => n.Valor).Returns(8);
-
             Assert.Equal("Aprovado", aluno.VerificarAprovacao(nota1, nota2));
         }
 
@@ -35,11 +30,6 @@ namespace CleanArc_Tests.Test
 
             var nota1 = new Faker<Nota>().CustomInstantiator(x => new Nota(7)).Generate();
             var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(7)).Generate();
-
-            //var nota1 = new Mock<Nota>();
-            //nota1.Setup(n => n.Valor).Returns(9);
-            //var nota2 = new Mock<Nota>();
-            //nota2.Setup(n => n.Valor).Returns(8);
 
             Assert.Equal("Aprovado", aluno.VerificarAprovacao(nota1, nota2));
         }
@@ -54,11 +44,6 @@ namespace CleanArc_Tests.Test
             var nota1 = new Faker<Nota>().CustomInstantiator(x => new Nota(6)).Generate();
             var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(7)).Generate();
 
-            //var nota1 = new Mock<Nota>();
-            //nota1.Setup(n => n.Valor).Returns(9);
-            //var nota2 = new Mock<Nota>();
-            //nota2.Setup(n => n.Valor).Returns(8);
-
             Assert.Throws<EmRecuperacaoException>( () => aluno.VerificarAprovacao(nota1, nota2));
         }
 
@@ -72,30 +57,20 @@ namespace CleanArc_Tests.Test
             var nota1 = new Faker<Nota>().CustomInstantiator(x => new Nota(3)).Generate();
             var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(3)).Generate();
 
-            //var nota1 = new Mock<Nota>();
-            //nota1.Setup(n => n.Valor).Returns(9);
-            //var nota2 = new Mock<Nota>();
-            //nota2.Setup(n => n.Valor).Returns(8);
-
             Assert.Throws<EmRecuperacaoException>(() => aluno.VerificarAprovacao(nota1, nota2));
         }
+        
         [Fact]
-
         public void Verifica_Aluno_EmRecuperacao_NaoAprovado()
         {
             var alunoFake = new Faker<Aluno>();
             alunoFake.CustomInstantiator(fake => new Aluno(fake.Person.FullName, DateOnly.FromDateTime(fake.Person.DateOfBirth)));
             var aluno = alunoFake.Generate();
 
-            var nota1 = new Faker<Nota>().CustomInstantiator(x => new Nota(2.9)).Generate();
-            var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(3)).Generate();
+            var n1 = new Mock<Nota>(2.9);
+            var n2 = new Mock<Nota>(3);
 
-            //var nota1 = new Mock<Nota>();
-            //nota1.Setup(n => n.Valor).Returns(9);
-            //var nota2 = new Mock<Nota>();
-            //nota2.Setup(n => n.Valor).Returns(8);
-
-            Assert.Throws<NaoAprovadoException>(() => aluno.VerificarAprovacao(nota1, nota2));
+            Assert.Throws<NaoAprovadoException>(() => aluno.VerificarAprovacao(n1.Object, n2.Object));
         }
 
     }

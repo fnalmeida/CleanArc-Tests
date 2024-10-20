@@ -14,6 +14,6 @@ namespace CleanArc_Tests.Domain.Alunos.ValueObjects
         }
 
         [Required]
-        public double Valor {  get; private set; }
+        public virtual double Valor { get; private set; }
     }
 }
