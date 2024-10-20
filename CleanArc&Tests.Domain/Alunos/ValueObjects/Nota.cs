@@ -9,11 +9,11 @@ namespace CleanArc_Tests.Domain.Alunos.ValueObjects
 {
     public class Nota
     {
-        public Nota(float valor) {
+        public Nota(double valor) {
             Valor = valor;
         }
 
         [Required]
-        public float Valor {  get; private set; }
+        public double Valor {  get; private set; }
     }
 }

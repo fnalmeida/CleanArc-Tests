@@ -12,11 +12,8 @@ namespace CleanArc_Tests.Domain.Alunos.Entities
     {
         public Aluno(string nome, DateOnly nascimento)
         {
-            ID = new Guid(); 
+            ID = Guid.NewGuid(); 
             Nome = nome;
-            if (nascimento < new DateOnly(2000, 01, 01))
-                throw new VelhoDimaisException();
-            else
             Nascimento = nascimento;
         }
 
@@ -26,14 +23,14 @@ namespace CleanArc_Tests.Domain.Alunos.Entities
 
         public string VerificarAprovacao(Nota nota1, Nota nota2)
         {
-            float somaDasNotas = nota1.Valor + nota2.Valor;
+            double somaDasNotas = (nota1.Valor + nota2.Valor) / 2;
 
             if (somaDasNotas < 3)
                 throw new NaoAprovadoException();
             else if (somaDasNotas >= 3 & somaDasNotas < 7)
                 throw new EmRecuperacaoException();
             else
-                return "Aluno aprovado";
+                return "Aprovado";
 
         }
     }

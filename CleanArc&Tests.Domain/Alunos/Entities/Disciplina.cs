@@ -10,6 +10,7 @@ namespace CleanArc_Tests.Domain.Alunos.Entities
     {
         public Disciplina(string nome) {
         
+            Id = Guid.NewGuid();
             Nome = nome;    
 
         }

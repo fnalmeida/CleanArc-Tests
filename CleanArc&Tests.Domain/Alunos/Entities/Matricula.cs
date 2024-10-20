@@ -10,7 +10,7 @@ namespace CleanArc_Tests.Domain.Alunos.Entities
     {
         public Matricula(Aluno aluno, Disciplina disciplina) {
 
-            Id = new Guid();
+            Id = Guid.NewGuid();
             Aluno = aluno;
             Disciplina = disciplina;
             DataMatricula = DateTime.Now;
