@@ -8,15 +8,18 @@ namespace CleanArc_Tests.Test
 {
     public class AlunoTests
     {
-        [Fact]
-        public void Verifica_Aluno_Aprovado_Com_NotaMaxima()
+        [Theory]
+        [InlineData(10, 10)]
+        [InlineData(7, 7)]
+        [InlineData(7, 7.1)]
+        public void Verifica_Aluno_Aprovado(double n1, double n2)
         {
             var  alunoFake = new Faker<Aluno>();
             alunoFake.CustomInstantiator(fake => new Aluno(fake.Person.FullName, DateOnly.FromDateTime(fake.Person.DateOfBirth)));
             var aluno = alunoFake.Generate();
 
-            var nota1 = new Faker<Nota>().CustomInstantiator( x => new Nota(10)).Generate();
-            var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(10)).Generate();
+            var nota1 = new Faker<Nota>().CustomInstantiator( x => new Nota(n1)).Generate();
+            var nota2 = new Faker<Nota>().CustomInstantiator(x => new Nota(n2)).Generate();
 
             Assert.Equal("Aprovado", aluno.VerificarAprovacao(nota1, nota2));
         }
